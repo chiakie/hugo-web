@@ -1,0 +1,4 @@
+baseURL = 'https://chiakie.github.io/'
+languageCode = 'en-us'
+title = '阿熊的家'
+theme = 'papermod'

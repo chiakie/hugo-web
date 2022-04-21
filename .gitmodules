@@ -1,0 +1,6 @@
+[submodule "themes/papermod"]
+	path = themes/papermod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "public"]
+	path = public
+	url = https://github.com/chiakie/chiakie.github.io.git
