@@ -1,24 +1,28 @@
 ---
-title: "Ubuntu_20.04"
+title: "Ubuntu_20.04 Startup"
 date: 2022-04-21T17:29:54+08:00
-draft: true
+draft:  true
 tags: ["ubuntu"]
 categories: ["chtwork"]
 ---
 
-# 設定NAT(if virtualbox)
-  map 127.0.0.1:22 to 10.0.2.15:22
-  map 127.0.0.1:3306 to 10.0.2.15:3306
-  map 127.0.0.1:8080 to 10.0.2.15:8080
+# NAT設定(in virtualbox)
+```
+map 127.0.0.1:22 to 10.0.2.15:22   
+map 127.0.0.1:3306 to 10.0.2.15:3306   
+map 127.0.0.1:8080 to 10.0.2.15:8080
+```
 
-# 確認sshd是否正常 
-  systemctl status ssh.service
-查看是否有啟用sshd
-  systemctl list-units | grep ssh
-可以到下列位置查看services的寫法
-  /etc/systemd/system/multi-user.target.wants
+# sshd
+* 確認sshd是否正常   
+systemctl status ssh.service
+* 查看是否有啟用sshd   
+systemctl list-units | grep ssh
+* 可以到下列位置查看services的寫法   
+/etc/systemd/system/multi-user.target.wants
 
 # 安裝openjdk8 (下載完copy到/opt底下解開)
+* 下載openjdk並解壓縮至/opt底下
 ```
 update-alternatives --install /usr/bin/java java /opt/jdk8u302-b08/bin/java 100
 update-alternatives --install /usr/bin/javac javac /opt/jdk8u302-b08/bin/javac 100
@@ -90,7 +94,7 @@ mysql> alter user 'airkids'@'%' identified with mysql_native_password by '<passw
 寫死了172.16.74.81為host IP => 修改成127.0.0.1就好囉!
 ```
 
-# 撰寫systemctl service
+# systemctl service for Glassfish
 sudo vim /etc/systemd/system/glassfish.service
 
 ```
@@ -107,9 +111,9 @@ ExecStop=/home/chiakie/glassfish4/bin/asadmin stop-domain sekoan
 [Install]
 WantedBy=multi-user.target
 ```
-sudo systemctl daemon-reload
-sudo systemctl start glassfish.service
-sudo systemctl enable glassfish.service
-sudo systemctl status glassfish.service
-sudo systemctl stop glassfish.service
+sudo systemctl daemon-reload   
+sudo systemctl start glassfish.service   
+sudo systemctl enable glassfish.service   
+sudo systemctl status glassfish.service   
+sudo systemctl stop glassfish.service   
 
