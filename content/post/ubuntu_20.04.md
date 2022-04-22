@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu_20.04 Startup"
 date: 2022-04-21T17:29:54+08:00
-draft:  true
+draft:  false
 tags: ["ubuntu"]
 categories: ["chtwork"]
 ---
