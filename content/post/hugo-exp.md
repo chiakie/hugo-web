@@ -7,6 +7,9 @@ categories: ["general"]
 ---
 
 # 安裝hugo
+* [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases) 下載對應作業系統提供的最新版
+* 視主題的情況可能要下載hugo_extended的版本
+* 以Windows為例，將下載下來的zip解壓縮到C:\hugo，再把路徑(C:\hugo)加到環境變數的Path底下
 
 # 創建一個hugo site
 ```
@@ -71,8 +74,15 @@ $ cd hugo-web
 // 透過submodule的功能，把github page的repo設定到指定路徑public/
 $ git submodule add https://github.com/chiakie/chiakie.github.io.git public
 
-// 生成靜態網頁 (-D會產生draft=true的文章)
+// 生成靜態網頁 (-D會產生包含draft=true的文章)
 $ hugo
 $ hugo -D
+
+// commit & push to github-pages repo
+$ cd public/
+$ git add .
+$ git ci
+$ git push
 ```
 * 靜態頁面會產生進public/裡
+* 等github-pages deployment結束後後，再去訪問[https://chiakie.github.io](https://chiakie.github.io) 即可看到剛剛新增的文章
